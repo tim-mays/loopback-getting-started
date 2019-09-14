@@ -15,6 +15,7 @@ export class MySqlDataSourceDataSource extends juggler.DataSource {
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
+      socketPath: process.env.FIXIE_SOCKS_HOST,
     });
 
     super(dsConfig);
