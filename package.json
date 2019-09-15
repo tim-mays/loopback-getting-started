@@ -55,7 +55,7 @@
     "@loopback/rest": "^1.18.1",
     "@loopback/rest-explorer": "^1.3.6",
     "@loopback/service-proxy": "^1.3.5",
-    "@tim-mays/loopback-connector-mysql": "^5.4.2",
+    "@tim-mays/loopback-connector-mysql": "^5.4.5",
     "@types/dotenv": "^6.1.1",
     "@types/jsonwebtoken": "^8.3.3",
     "bcryptjs": "^2.4.3",

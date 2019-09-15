@@ -1,7 +1,6 @@
 {
   "name": "mySqlDataSource",
   "connector": "@tim-mays/loopback-connector-mysql",
-  "url": "",
   "host": "DB_HOST",
   "port": "DB_PORT",
   "user": "DB_USER",
