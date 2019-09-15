@@ -1,7 +1,7 @@
 import {inject} from '@loopback/core';
 import {juggler} from '@loopback/repository';
 import * as config from './my-sql-data-source.datasource.json';
-import SocksConnection from 'socksjs';
+import SocksConnection = require('socksjs');
 import {HttpErrors} from '@loopback/rest';
 
 export class MySqlDataSourceDataSource extends juggler.DataSource {
