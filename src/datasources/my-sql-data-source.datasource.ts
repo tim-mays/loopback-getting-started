@@ -15,6 +15,9 @@ export class MySqlDataSourceDataSource extends juggler.DataSource {
       const mysqlServer = {
         host: process.env.DB_HOST,
         port: process.env.DB_PORT,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_DATABASE,
       };
 
       const fixieUrl = process.env.FIXIE_SOCKS_HOST;
@@ -29,11 +32,8 @@ export class MySqlDataSourceDataSource extends juggler.DataSource {
         });
 
         Object.assign(dsConfig, {
-          host: fixieValues[2],
-          port: fixieValues[3],
-          user: process.env.DB_USER,
-          password: process.env.DB_PASSWORD,
-          database: process.env.DB_DATABASE,
+          host: undefined,
+          port: undefined,
           stream: fixieConnection,
         });
       } else {
