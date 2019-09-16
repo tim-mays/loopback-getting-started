@@ -24,12 +24,17 @@ export class MySqlDataSourceDataSource extends juggler.DataSource {
 
       if (fixieUrl !== undefined) {
         const fixieValues = fixieUrl.split(new RegExp('[/(:\\/@)/]+'));
-        const fixieConnection = new SocksConnection(mysqlServer, {
-          user: fixieValues[0],
-          pass: fixieValues[1],
-          host: fixieValues[2],
-          port: fixieValues[3],
-        });
+
+        function streamFactory() {
+          const fixieConnection = new SocksConnection(mysqlServer, {
+            user: fixieValues[0],
+            pass: fixieValues[1],
+            host: fixieValues[2],
+            port: fixieValues[3],
+          });
+
+          return fixieConnection;
+        }
 
         Object.assign(dsConfig, {
           host: undefined,
@@ -37,7 +42,7 @@ export class MySqlDataSourceDataSource extends juggler.DataSource {
           user: process.env.DB_USER,
           password: process.env.DB_PASSWORD,
           database: process.env.DB_DATABASE,
-          stream: fixieConnection,
+          stream: streamFactory,
         });
       } else {
         throw new HttpErrors.InternalServerError(
